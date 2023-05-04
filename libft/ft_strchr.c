@@ -9,6 +9,7 @@
 /*   Updated: 2023/05/03 14:12:31 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 char *ft_strchr (const char *str, int c)
 {
@@ -27,6 +28,5 @@ char *ft_strchr (const char *str, int c)
 	{
 		return (pt);
 	}
-	
 	return(NULL);
 }

@@ -9,7 +9,6 @@
 /*   Updated: 2023/05/03 13:00:53 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
 int ft_isalpha(int c)
 {
@@ -21,15 +20,4 @@ int ft_isalpha(int c)
 	{
 		return(0);
 	}
-}
-
-int main()
-{	
-	int c;
-
-	c = 'a';
-
-	printf("%i", ft_isalpha(c));
-
-	return(0);
 }

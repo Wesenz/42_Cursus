@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 13:03:43 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/03 13:03:50 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/05/05 16:48:42 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/05/05 16:48:43 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int ft_isdigit(int c)
+void ft_bzero(void *s, size_t n)
 {
-	if(c >= 0 && c <= 9)
+	size_t	i;
+	char *sptr;
+
+	i = 0;
+	sptr = (char *) s;
+	if (n == 0)
 	{
-		return(1);
+		return ;
 	}
-	else
+	while (i < n)
 	{
-		return(0);
+		sptr[i] = 0;
+		i++;
 	}
 }

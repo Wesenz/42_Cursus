@@ -14,6 +14,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int ft_isalnum(int c);
 int ft_isalpha(int c);
@@ -26,6 +27,7 @@ int ft_toupper(int c);
 size_t ft_strlen(const char *s);
 char *ft_strchr(const char *str, int c);
 char *ft_strrchr(const char *str, int c);
+void ft_bzero(void *s, size_t n);
 void *ft_memset(void *s, int c, size_t n);
 
 #endif

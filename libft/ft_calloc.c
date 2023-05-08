@@ -21,12 +21,3 @@ void	*ft_calloc(size_t count, size_t size)
     }
     return(arrpt);
 }
-
-int main()
-{
-    int a = 5;
-    int len = 5;
-    printf("%p \n", ft_calloc(a, len));
-
-    return(0);
-}

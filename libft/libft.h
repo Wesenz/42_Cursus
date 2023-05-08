@@ -34,5 +34,6 @@ char *ft_strrchr(const char *str, int c);
 void ft_bzero(void *s, size_t n);
 void *ft_memset(void *s, int c, size_t n);
 void *ft_calloc(size_t count, size_t size);
+void *ft_memmove(void *dest, const void *src, size_t n);
 
 #endif

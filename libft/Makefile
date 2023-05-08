@@ -19,7 +19,8 @@ AR = ar rc
 OBJS = ft_bzero.o ft_isalnum.o ft_isalpha.o \
 ft_isascii.o ft_isdigit.o ft_isprint.o ft_memset.o \
 ft_strchr.o ft_strlen.o ft_strncmp.o ft_strrchr.o \
-ft_tolower.o ft_toupper.o
+ft_tolower.o ft_toupper.o ft_memchr.o ft_calloc.o \
+ft_memmove.o
 
 %.o : %.c libft.h
 	${CC} ${CFLAGS} -c $< -o $@
@@ -30,9 +31,9 @@ $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 
 clean:
-	/bin/rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

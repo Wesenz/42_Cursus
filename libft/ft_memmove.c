@@ -29,7 +29,7 @@ void *ft_memmove(void *dest, const void *src, size_t n)
     }
     return(dest);
 }
-
+/*
 int main()
 {
     const char src [] = "Hello World";
@@ -40,4 +40,4 @@ int main()
     printf("%s \n", src);
     printf("%s \n", dst);
     return(0);
-}
+}*/

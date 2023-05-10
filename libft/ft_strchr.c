@@ -6,14 +6,14 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 14:12:30 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/03 14:12:31 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:49:15 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char *ft_strchr (const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	char *pt;
+	char	*pt;
 
 	pt = (char *) str;
 	while (*pt != '\0')
@@ -27,7 +27,6 @@ char *ft_strchr (const char *str, int c)
 	if (*pt == '\0' && c == '\0')
 	{
 		return (pt);
-	}
-	
-	return(NULL);
+	}	
+	return (NULL);
 }

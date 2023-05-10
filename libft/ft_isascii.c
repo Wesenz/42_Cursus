@@ -6,19 +6,19 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:21:45 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/03 13:21:47 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:18:19 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 	{
-		return(1);
+		return (1);
 	}
 	else
 	{
-		return(0);
+		return (0);
 	}
 }

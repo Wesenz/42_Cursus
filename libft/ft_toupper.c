@@ -6,16 +6,16 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:51:31 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/03 13:51:34 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:46:42 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 	{
 		c = c - 32;
 	}
-	return(c);
+	return (c);
 }

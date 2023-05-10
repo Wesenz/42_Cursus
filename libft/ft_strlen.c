@@ -6,19 +6,19 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 14:06:08 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/03 14:07:37 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:20:03 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
 		i++;
 	}
-	return(i);
+	return (i);
 }

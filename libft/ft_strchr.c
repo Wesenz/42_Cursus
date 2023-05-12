@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
+	/*
 	char	*pt;
 
 	pt = (char *) str;
@@ -28,5 +29,6 @@ char	*ft_strchr(const char *str, int c)
 	{
 		return (pt);
 	}	
-	return (NULL);
+	return (NULL);*/
+	return (ft_memchr(s, c, ft_strlen(s) + 1));
 }

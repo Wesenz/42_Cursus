@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 14:12:30 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/12 19:50:55 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/05/12 17:48:40 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/05/12 19:46:44 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	/*
-	char	*pt;
+	size_t	i;
 
-	pt = (char *) str;
-	while (*pt != '\0')
+	i = 0;
+	if (!dstsize || dst == NULL || src == NULL)
 	{
-		if (*pt == c)
-		{
-			return (pt);
-		}
-		pt++;
+		return (ft_strlen(src));
 	}
-	if (*pt == '\0' && c == '\0')
+	if (!dst || !src || !dstsize)
 	{
-		return (pt);
-	}	
-	return (NULL);*/
-	return (ft_memchr(s, c, ft_strlen(s) + 1));
+		return (0);
+	}
+	while (i < dstsize - 1 && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

@@ -21,7 +21,7 @@ ft_isascii.o ft_isdigit.o ft_isprint.o ft_memset.o \
 ft_strchr.o ft_strlen.o ft_strncmp.o ft_strrchr.o \
 ft_tolower.o ft_toupper.o ft_memchr.o ft_calloc.o \
 ft_memmove.o ft_memcpy.o ft_strlcpy.o ft_atoi.c \
-ft_strdup.o
+ft_strdup.o ft_strstr.o
 
 %.o : %.c libft.h
 	${CC} ${CFLAGS} -c $< -o $@

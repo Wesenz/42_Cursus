@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-
+//Igual hay que borrar las librerias
 # include <stdio.h>
 # include <string.h>
 # include <ctype.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <errno.h>
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -35,6 +36,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+char    *ft_strdup(const char *s);
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);

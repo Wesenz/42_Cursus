@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 17:48:40 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/12 19:46:44 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/05/15 17:50:06 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/05/15 17:55:09 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
@@ -34,3 +36,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (ft_strlen(src));
 }
 
+int main(void)
+{	
+	char *str = "q ase";
+	char *dst = "ola ";
+	int len = ft_strlen(str);
+
+	printf("%s", ft_strlcat(dst, str, len));
+	printf("%s", strlcat(dst, str, len));
+	return (0);
+}

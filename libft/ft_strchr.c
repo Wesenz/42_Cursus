@@ -13,22 +13,5 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	/*
-	char	*pt;
-
-	pt = (char *) str;
-	while (*pt != '\0')
-	{
-		if (*pt == c)
-		{
-			return (pt);
-		}
-		pt++;
-	}
-	if (*pt == '\0' && c == '\0')
-	{
-		return (pt);
-	}	
-	return (NULL);*/
 	return (ft_memchr(s, c, ft_strlen(s) + 1));
 }

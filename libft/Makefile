@@ -10,11 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
+HEADER = libft.h
+
 NAME = libft.a
 
 CC = gcc
+
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rc
+
+AR = ar rcs
 
 OBJS = ft_bzero.o ft_isalnum.o ft_isalpha.o \
 ft_isascii.o ft_isdigit.o ft_isprint.o ft_memset.o \

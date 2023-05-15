@@ -23,13 +23,14 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
     }
     return (0);
 }
-int main(void)
-{
-    char str1[] = "Hello world";
-    char str2 [] = "Hello World";
-    size_t len = strlen(str1);
 
-    printf("%u \n", ft_memcmp(str1, str2, len));
+// int main(void)
+// {
+//     char str1[] = "Hello world";
+//     char str2 [] = "Hello World";
+//     size_t len = strlen(str1);
 
-    return (0);
-}
+//     printf("%u \n", ft_memcmp(str1, str2, len));
+
+//     return (0);
+// }

@@ -28,15 +28,20 @@ void *ft_memmove(void *dest, const void *src, size_t n)
     dpt = (char *) dest;
     spt = (const char *) src;
 
-    if (dest == src)
+    if (dest < src)
     {   
-        return(dest);
-    } 
-    else if (dest < src)
-    {   while (i < n)
-        {
+        while (i < n)
+        {   
             dpt[i] = spt[i];
             i++;
+        }
+    }
+    if (dest > src)
+    {
+        while (n > i)
+        {
+            dpt[n - 1] = spt[n - 1];
+            n--;
         }
     }
     return(dest);

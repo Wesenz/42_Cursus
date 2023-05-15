@@ -13,23 +13,26 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*pt;
-	int		len;
+	int	i;
 
-	len = ft_strlen(s);
-	pt = (char *) s + len - 1;
-	if (c == '\0')
-	{
-		return (pt);
-	}
-	while (len != 0)
-	{
-		if (*pt == c)
+	i = strlen(s);
+	while (i >= 0)
+	{	
+		if(s[i] == (char)c)
 		{
-			return (pt);
+			return((char *)&s[i]);
 		}
-		len--;
-		pt--;
+		i--;
 	}
-	return (NULL);
+	return (0);
 }
+
+// int main(void)
+// {
+// 	char* str = "pen pineapple apple pen!";
+
+// 	printf("%s\n", ft_strrchr(str, 'p'));
+// 	printf("%s\n", strrchr(str, 'p'));
+
+// 	return 0;
+// }

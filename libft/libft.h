@@ -14,6 +14,7 @@
 //Igual hay que borrar las librerias
 
 # include <stdlib.h> //STANDARD LIB SE PUEDE INCLUIR
+# include <string.h>
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -35,7 +36,6 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 char	*ft_strstr(char *str, char *to_find);
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
-
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);

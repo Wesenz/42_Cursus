@@ -11,38 +11,37 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
+	size_t	dstlen;
+	size_t	srclen;
 
 	i = 0;
-	if (!dstsize || dst == NULL || src == NULL)
+	dstlen = ft_strlen(dst);
+	srclen = ft_strlen(src);
+	if (!dstsize)
+		return(srclen);
+	while (src[i] != '\0' && dstlen + i < dstsize - 1)
 	{
-		return (ft_strlen(src));
-	}
-	if (!dst || !src || !dstsize)
-	{
-		return (0);
-	}
-	while (i < dstsize - 1 && src[i] != '\0')
-	{
-		dst[i] = src[i];
+		dst[dstlen + i] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
+	dst[dstlen + i] = '\0';
+	if (dstlen > dstsize)
+		return (srclen + dstsize);
+	return (srclen + dstlen);
 }
-
+/*
 int main(void)
 {	
-	char *str = "q ase";
-	char *dst = "ola ";
-	int len = ft_strlen(str);
+	char str[] = "q ase";
+	char dst[] = "ola ";
+	int len = strlen(str);
 
-	printf("%s", ft_strlcat(dst, str, len));
-	printf("%s", strlcat(dst, str, len));
+	printf("%zu", ft_strlcat(dst, str, len));
+	printf("%lu", strlcat(dst, str, len));
 	return (0);
 }
+*/

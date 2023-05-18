@@ -36,6 +36,7 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 char	*ft_strstr(char *str, char *to_find);
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
+char    *ft_strjoin(char const *s1, char const *s2);
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);

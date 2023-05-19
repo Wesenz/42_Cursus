@@ -1,6 +1,31 @@
 #include "libft.h"
 #include <stdio.h>
 
+static int words(const char *s, char c)
+{
+    size_t          i;
+    unsigned int    trigger;
+    unsigned int    words;
+
+    i = 0; 
+    trigger = 0;
+    words = 0;
+    while(s[i] != '\0')
+    {
+        if(s[i] != c && trigger == 0)
+        {
+            trigger = 1;
+            words++;
+        }
+        else if(s[i] == c)
+        {
+          trigger = 0;
+        }
+        i++;
+    }
+    return (words);
+}
+
 char **ft_split(char const *s, char c)
 {
     size_t  i;

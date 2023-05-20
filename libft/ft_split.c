@@ -26,6 +26,21 @@ static int words(const char *s, char c)
     return (words);
 }
 
+static  int word_size(const char *s, char c)
+{
+    size_t  size;
+    size_t  i;
+
+    i = 0;
+    size = 0;
+    while (s[i] != '\0' && s[i] != c)
+    {
+        size++;
+        i++;
+    }
+    return (size);
+}
+
 char **ft_split(char const *s, char c)
 {
     size_t  i;
@@ -33,7 +48,7 @@ char **ft_split(char const *s, char c)
     size_t  slen;
     char    *newstr;
 
-    slen = srtlen(s);
+    slen = strlen(s);
     newstr = (char *)malloc(sizeof(char *) * (slen + 1));
 
     while(i != slen)
@@ -50,16 +65,6 @@ char **ft_split(char const *s, char c)
     newstr[i - slen] = '\0';
 
     return (newstr);
-/*
-if ((s1[i] >= 9 && s1[i] <= 13) || s1[i] == 32)
-        {
-            j++;
-        }
-        else
-        {
-            newstr[i - j] = s1[i];
-        }
-*/
 }
 
 int main(void)
@@ -67,7 +72,7 @@ int main(void)
     char    str[] = "spliteame esta string peluca";
     char    c = " ";
 
-    printf("%s\n", ft_split(str));
+    printf("%s\n", ft_split(str, c));
 
     return (0);
 }

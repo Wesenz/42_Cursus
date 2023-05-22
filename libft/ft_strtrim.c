@@ -2,35 +2,37 @@
 #include <string.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include "libft.h"
 
 char *ft_strtrim(char const *s1, char const *set)
 {   
     size_t  i;
     size_t  j;
-    size_t  s1len;
     char    *newstr;
     
     i = 0;
-    j = 0;
-    s1len = strlen(s1);
-    newstr = (char *)malloc(sizeof(char *) * (s1len + 1));
+    j = ft_strlen(s1) - 1;
+    newstr = (char *)malloc(sizeof(char *) * (j + 1));
     if(!newstr)
         return (NULL);
-    while (i != s1len)
+    while (i != j)
     {
-        if ((s1[i] >= 9 && s1[i] <= 13) || s1[i] == 32)
-        {
-            j++;
-        }
-        else
-        {
-            newstr[i - j] = s1[i];
-        }
+        if (s1[i] == *set)//(s1[i] >= 9 && s1[i] <= 13) || s1[i] == 32)
+            i++;
+        newstr[i] = s1[i]; 
         i++;
     }
-    newstr[s1len - j] = '\0';
+    while (j != 0)
+    {
+        if (s1[j] == *set)
+            j--;
+        newstr[j] = s1[j];
+        j--;
+    }
+    newstr[i - j] = '\0';
     return (newstr);
 }
+/*
 int main(void)
 {   
     char    str[] = "1 2 3\n4 5 6\t7 8 9\0";
@@ -39,4 +41,4 @@ int main(void)
 
     printf("%s\n", ft_strtrim(str, set));
     return (0);
-}
+}*/

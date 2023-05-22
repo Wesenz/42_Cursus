@@ -6,15 +6,13 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:25:32 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/15 16:53:35 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:39:22 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-//Igual hay que borrar las librerias
 
 # include <stdlib.h> //STANDARD LIB SE PUEDE INCLUIR
-# include <string.h>
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -36,8 +34,10 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 char	*ft_strstr(char *str, char *to_find);
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
-char    *ft_strjoin(char const *s1, char const *s2);
-char    *ft_strtrim(char const *s1, char const *set);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	**ft_split(char const *s, char c);
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);

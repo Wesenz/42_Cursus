@@ -6,7 +6,7 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:48:40 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/12 19:46:44 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:38:31 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	dst[i] = '\0';
 	return (ft_strlen(src));
 }
-

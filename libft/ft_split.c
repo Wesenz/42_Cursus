@@ -4,25 +4,23 @@
 
 static int words(const char *s, char c)
 {
-    int    i;
     int    trigger;
     int    words;
 
-    i = 0; 
     trigger = 0;
     words = 0;
-    while(s[i] != '\0')
+    while(*s != '\0')
     {
-        if(s[i] != c && trigger == 0)
+        if(*s != c && trigger == 0)
         {
             trigger = 1;
             words++;
         }
-        else if(s[i] == c)
+        else if(*s == c)
         {
           trigger = 0;
         }
-        i++;
+        s++;
     }
     return (words);
 }
@@ -37,7 +35,6 @@ static  char *cpy_letters(const char *s, int start, int end)
     while (start < end)
     {
         letters[i++] = s[start++];
-
     }
     letters[i] = '\0';
     return (letters);
@@ -45,39 +42,35 @@ static  char *cpy_letters(const char *s, int start, int end)
 
 char    **ft_split(char const *s, char c)
 {
-    int  i;
-    int  j;
-    int trigger;
-    int  slen;
-    char    **newstr;
+    size_t  i;
+    size_t  j;
+    int  trigger;
+    char **newstr;
 
     i = 0;
     j = 0;
     trigger = -1;
-    slen = strlen(s);
     newstr = malloc((words(s, c) + 1) * sizeof(char *));
     if (!s || !newstr)
         return (NULL);
-    while(i <= slen)
+    while(i <= strlen(s))
     {
         if(s[i] != c && trigger < 0)
             trigger = i;
-        else if (s[i] == c || (trigger >= 0 && s[i] == '\0'))
+        else if ((s[i] == c || i == strlen(s)) && trigger >= 0)
         {
-            newstr[j] = cpy_letters(s, trigger, i);
-            j++;
+            newstr[j++] = cpy_letters(s, trigger, i);
             trigger = -1;
         }
         i++;
     }
     newstr[j] = '\0';
     return (newstr);
-    printf("Newstr: %s\n", *newstr);
 }
 /*
 int main(void)
 {
-    char str[] = "spliteame esta string peluca";
+    char str[] = "   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ";
     char c = ' ';
     char **result = ft_split(str, c);
     if (result != NULL)

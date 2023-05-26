@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 static long int int_len (int n)
 {
     int    len;
@@ -22,20 +21,26 @@ char    *ft_itoa(int n)
 {
     char    *newstr;
     int     len;
+    int     sign;
 
     len = int_len(n);
+    sign = -1;
     newstr = (char *)malloc(sizeof(char) * (len + 1));
     if (!newstr)
         return (NULL);
-	newstr[len] = '\0';
+    newstr[len] = '\0';
     if (n == 0)
-    {
         newstr[0] = 0 + 48;
-    }
     while (n > 0)
     {
-        newstr[--len] = 48 + (n % 10);
+        newstr[--len] = '0' + (n % 10);
         n = n / 10;
+    }
+    while (n < 0)
+    {
+        newstr[--len] = '0' + (sign * (n % 10));
+        n = n / 10;
+        newstr[0] = '-';
     }
     return (newstr);
 }

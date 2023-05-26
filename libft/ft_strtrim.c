@@ -1,31 +1,39 @@
-#include <stdio.h>
-#include <string.h>
-#include <stddef.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 17:30:10 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/05/26 17:34:41 by marcfer2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
-{   
-    size_t  i;
-    size_t  s1len;
-    size_t  newlen;
-    char    *newstr;
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	i;
+	size_t	s1len;
+    size_t	newlen;
+    char	*newstr;
     
-    if (!s1 || !set)
-        return (NULL);
-    i = 0;
-    s1len = ft_strlen(s1);
-    while (s1[i] && ft_strchr(set, s1[i]) != NULL) 
-        i++;
-    while (s1len > i && ft_strchr(set, s1[s1len]) != NULL) 
-        s1len--;
-    newlen = s1len - i + 1;
-    newstr = (char *)malloc(sizeof(char) * newlen + 1);
-    if(!newstr)
-        return (NULL);
-    ft_memcpy(newstr, s1 + i, newlen);
-    newstr[newlen] = '\0';
-    return (newstr);
+	if (!s1 || !set)
+		return (NULL);
+	i = 0;
+	s1len = ft_strlen(s1);
+	while (s1[i] && ft_strchr(set, s1[i]) != NULL) 
+		i++;
+	while (s1len > i && ft_strchr(set, s1[s1len]) != NULL) 
+		s1len--;
+	newlen = s1len - i + 1;
+	newstr = (char *)malloc(sizeof(char) * newlen + 1);
+	if (!newstr)
+		return (NULL);
+	ft_memcpy(newstr, s1 + i, newlen);
+	newstr[newlen] = '\0';
+	return (newstr);
 }
 /*
 int main(void)

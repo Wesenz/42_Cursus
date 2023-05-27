@@ -21,12 +21,7 @@ char    *ft_itoa(int n)
 {
     char    *newstr;
     int     len;
-<<<<<<< HEAD
     int     sign;
-=======
-    char    sign;
-
->>>>>>> 1d2fe64506a089b519ea2755dea145bdef0a0b3d
 
     len = int_len(n);
     sign = -1;
@@ -41,22 +36,12 @@ char    *ft_itoa(int n)
         newstr[--len] = '0' + (n % 10);
         n = n / 10;
     }
-<<<<<<< HEAD
     while (n < 0)
     {
         newstr[--len] = '0' + (sign * (n % 10));
         n = n / 10;
         newstr[0] = '-';
     }
-=======
-    if (n < 0)
-    {
-        newstr[--len] = 48 + (n % 10);
-        n = n / 10;
-        n *= sign;
-    }
-    
->>>>>>> 1d2fe64506a089b519ea2755dea145bdef0a0b3d
     return (newstr);
 }
 

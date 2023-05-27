@@ -1,50 +1,61 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/27 15:59:51 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/05/27 16:05:52 by marcfer2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-static long int int_len (int n)
-{
-    int    len;
 
-    len = 0;
-    if (n <= 0)
-        len = 1;
-    while(n != 0)
-    {
-        len++;
-        n = n / 10;
-    }
-    return (len);
+static long int	int_len(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
+	{
+		len++;
+		n = n / 10;
+	}
+	return (len);
 }
 
-char    *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    char    *newstr;
-    int     len;
-    int     sign;
+	char	*newstr;
+	int		len;
+	int		sign;
 
-    len = int_len(n);
-    sign = -1;
-    newstr = (char *)malloc(sizeof(char) * (len + 1));
-    if (!newstr)
-        return (NULL);
-    newstr[len] = '\0';
-    if (n == 0)
-        newstr[0] = 0 + 48;
-    while (n > 0)
-    {
-        newstr[--len] = '0' + (n % 10);
-        n = n / 10;
-    }
-    while (n < 0)
-    {
-        newstr[--len] = '0' + (sign * (n % 10));
-        n = n / 10;
-        newstr[0] = '-';
-    }
-    return (newstr);
+	len = int_len(n);
+	sign = -1;
+	newstr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!newstr)
+		return (NULL);
+	newstr[len] = '\0';
+	if (n == 0)
+		newstr[0] = 0 + 48;
+	while (n > 0)
+	{
+		newstr[--len] = '0' + (n % 10);
+		n = n / 10;
+	}
+	while (n < 0)
+	{
+		newstr[--len] = '0' + (sign * (n % 10));
+		n = n / 10;
+		newstr[0] = '-';
+	}
+	return (newstr);
 }
 
+/*
 int    main(void)
 {    
     int n0 = 1234;
@@ -64,4 +75,4 @@ int    main(void)
     // printf("%s", itoa(n2));
     // printf("%s", itoa(n3));
     return (0);
-}
+}*/

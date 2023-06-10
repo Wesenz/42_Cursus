@@ -1,6 +1,5 @@
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
+
 char    *f(unsigned int i, char chr)
 {   
     char    *c;
@@ -21,7 +20,7 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
     char *newstr;
     
     i = 0;
-    len = strlen(s);
+    len = ft_strlen(s);
     newstr = ((char *)malloc(sizeof(char) * len + 1));
     if (!s || !newstr || !f)
         return(0);
@@ -33,14 +32,3 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
     newstr[i] = '\0';
     return(newstr);
 }
-/*
-int main(void)
-{
-    char str1[] = "abc";
-	char* str2;
-	str2 = ft_strmapi(str1, *f);
-	printf("%s\n", str2);
-
-    return (0);
-}
-*/

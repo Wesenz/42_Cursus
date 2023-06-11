@@ -27,7 +27,8 @@ ft_tolower.o ft_toupper.o ft_memchr.o ft_calloc.o \
 ft_memmove.o ft_memcpy.o ft_memcmp.o ft_strlcpy.o ft_atoi.o \
 ft_strdup.o ft_strstr.o ft_strnstr.o ft_strlcat.o ft_strjoin.o \
 ft_strtrim.o ft_substr.o ft_split.o ft_itoa.o ft_strmapi.o \
-ft_striteri.o
+ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o \
+ft_putnbr_fd.o
 
 %.o : %.c libft.h
 	${CC} ${CFLAGS} -c $< -o $@

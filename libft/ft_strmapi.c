@@ -4,9 +4,8 @@ char    *f(unsigned int i, char chr)
 {   
     char    *c;
 
-    i = i;
     c = &chr;
-    if (*c >= 41 && *c <= 90)
+    if (*c >= 41 && *c <= 90 && i != 0)
         *c = *c + 32;
     else
         *c = *c - 32;

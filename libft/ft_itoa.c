@@ -54,7 +54,6 @@ char	*ft_itoa(int n)
 	}
 	return (newstr);
 }
-
 /*
 int    main(void)
 {    
@@ -63,7 +62,7 @@ int    main(void)
     // float n2 = 1.234;
     // long int n3 = 2147483647;
 
-    printf("%s", ft_itoa(n0));
+    printf("%s\n", ft_itoa(n0));
     // printf("%s", ft_itoa(n1));
     // printf("%s", ft_itoa(n2));
     // printf("%s", ft_itoa(n3));
@@ -75,4 +74,5 @@ int    main(void)
     // printf("%s", itoa(n2));
     // printf("%s", itoa(n3));
     return (0);
-}*/
+}
+*/

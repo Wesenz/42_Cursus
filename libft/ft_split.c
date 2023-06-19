@@ -41,7 +41,11 @@ static char	*cpy_letters(const char *s, int start, int end)
 	int		i;
 
 	i = 0;
+	if (!s)
+		return(0);
 	letters = malloc((end - start + 1) * sizeof(char));
+	if (!letters)
+		return (NULL);
 	while (start < end)
 	{
 		letters[i++] = s[start++];
@@ -53,12 +57,14 @@ static char	*cpy_letters(const char *s, int start, int end)
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
-	size_t	j;
+	int	j;
 	int		trigger;
 	char	**newstr;
+	int		k;
 
 	i = 0;
 	j = 0;
+	k = 0;
 	trigger = -1;
 	newstr = malloc((words(s, c) + 1) * sizeof(char *));
 	if (!s || !newstr)
@@ -68,9 +74,20 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != c && trigger < 0)
 			trigger = i;
 		else if ((s[i] == c || i == ft_strlen(s)) && trigger >= 0)
-		{
-			newstr[j++] = cpy_letters(s, trigger, i);
+		{	
+			newstr[j] = cpy_letters(s, trigger, i);
+			if (!newstr[j])
+			{
+				while (k < j)
+				{
+					free(newstr[k]);
+					k++;
+				}
+				free(newstr);
+				return(NULL);				
+			}	
 			trigger = -1;
+			j++;
 		}
 		i++;
 	}

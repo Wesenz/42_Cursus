@@ -6,11 +6,24 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:23:24 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/26 17:29:46 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/06/22 20:04:47 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	free_split(char **newstr)
+{
+	int i;
+
+	i = 0;
+	while (newstr[i])
+	{
+		free(newstr[i]);
+		i++;
+	}
+	free(newstr);
+}
 
 static int	words(const char *s, char c)
 {
@@ -42,14 +55,12 @@ static char	*cpy_letters(const char *s, int start, int end)
 
 	i = 0;
 	if (!s)
-		return(0);
+		return (0);
 	letters = malloc((end - start + 1) * sizeof(char));
 	if (!letters)
 		return (NULL);
 	while (start < end)
-	{
 		letters[i++] = s[start++];
-	}
 	letters[i] = '\0';
 	return (letters);
 }
@@ -57,18 +68,15 @@ static char	*cpy_letters(const char *s, int start, int end)
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
-	int	j;
+	int		j;
 	int		trigger;
 	char	**newstr;
-	int		k;
 
+	if (!s || !(newstr = malloc((words(s, c) + 1) * sizeof(char *))))
+		return (NULL);
 	i = 0;
 	j = 0;
-	k = 0;
 	trigger = -1;
-	newstr = malloc((words(s, c) + 1) * sizeof(char *));
-	if (!s || !newstr)
-		return (NULL);
 	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && trigger < 0)
@@ -78,14 +86,9 @@ char	**ft_split(char const *s, char c)
 			newstr[j] = cpy_letters(s, trigger, i);
 			if (!newstr[j])
 			{
-				while (k < j)
-				{
-					free(newstr[k]);
-					k++;
-				}
-				free(newstr);
-				return(NULL);				
-			}	
+				free_split(newstr);
+				return (NULL);
+			}
 			trigger = -1;
 			j++;
 		}

@@ -13,16 +13,22 @@
 #include "libft.h"
 
 void ft_lstadd_back(t_list **lst, t_list *newNode)
-{
+{   
     t_list  *pointedNode;
 
-    pointedNode = *lst;
-    if (pointedNode != NULL)
+    if (!lst || !newNode)
+        return;
+    if (*lst == NULL)
     {
-        if (pointedNode->next == NULL)
-        {   
-            pointedNode->next = newNode;
-            newNode->next = NULL;
+        *lst = newNode;
+    }
+    else
+    {
+        pointedNode = *lst;
+        while (pointedNode->next != NULL)
+        {
+            pointedNode = pointedNode->next;
         }
+        pointedNode->next = newNode;
     }
 }

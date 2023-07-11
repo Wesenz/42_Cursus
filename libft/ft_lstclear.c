@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 14:27:50 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/07/11 14:27:50 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/07/11 14:27:33 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/07/11 14:27:33 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *newNode)
+void		ft_lstclear(t_list **lst, void (*del)(void *))
 {
-    t_list  *pointedNode;
+    t_list  *nextNode;
+    t_list  *startNode;
 
-    pointedNode = *lst;
-    if (pointedNode != NULL)
+    startNode = *lst;
+    while (startNode != NULL)
     {
-        if (pointedNode->next == NULL)
-        {   
-            pointedNode->next = newNode;
-            newNode->next = NULL;
-        }
+        nextNode = startNode->next;
+        del(startNode->content);
+        free(startNode);
+        startNode = nextNode;
     }
+    *lst = NULL;
 }

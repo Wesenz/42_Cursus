@@ -6,7 +6,7 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:13:44 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/12 19:48:27 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:51:56 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -25,7 +25,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		return (0);
 	}
 	while (i < n)
-	{	
+	{
 		d[i] = s[i];
 		i++;
 	}

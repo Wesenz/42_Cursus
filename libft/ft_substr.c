@@ -6,52 +6,35 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:00:50 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/17 18:31:16 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:50:55 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
-{	
-	unsigned int	i;
-	unsigned int	strlen;
+char	*ft_substr(const char *str, unsigned int start, size_t len)
+{
 	char	*substr;
-	if (!s)
-		return (NULL);
+	size_t	i;
+	size_t	srclen;
+
 	i = 0;
-	strlen = ft_strlen(s);
-	if (strlen < start)
-	{
-		substr = (char *)malloc(sizeof(char) * 1);
-		if(!substr)
-			return(NULL);
-		substr[0] = '\0';
-		return (substr);
-	}
-	else if (ft_strlen(s + start) < len)
-	{
-		len = ft_strlen(s + start);
-		substr = (char *)malloc(sizeof(char) * (len + 1));
-	}
+	srclen = ft_strlen(str);
+	if (!str)
+		return (NULL);
+	if (srclen < len)
+		len = srclen;
+	substr = (char *)malloc(sizeof(char) * len + 1);
 	if (!substr)
 		return (NULL);
-	while (s[i + start] != '\0' && i < len)
+	if (!(start > srclen))
 	{
-		substr[i] = s[i + start];
-		i++;
+		while (i < len && str[i + start] != '\0')
+		{
+			substr[i] = str[i + start];
+			i++;
+		}
 	}
 	substr[i] = '\0';
 	return (substr);
 }
-
-/*
-int main(void)
-{
-	char src[] = "test0 test1 test2";
-	unsigned int start = 6;
-	size_t len = start;
-
-	printf("%s", ft_substr(src, start, len));
-	return (0);
-}*/

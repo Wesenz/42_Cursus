@@ -6,7 +6,7 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:24:08 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/05/15 17:20:13 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/07/12 17:01:02 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@ char	*ft_strstr(char *str, char *to_find)
 
 	i = 0;
 	if (to_find[0] == '\0')
-	{
 		return (str);
-	}
 	while (str[i] != '\0')
-	{	
+	{
 		j = 0;
 		while (str[i + j] == to_find[j] && str[i + j] != '\0')
 		{
@@ -35,13 +33,3 @@ char	*ft_strstr(char *str, char *to_find)
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-	char	str1[50] = "Encuentra coin la coincidencia asdfasrew";
-	char	str2[50] = "coincidencia";
-
-	printf("%s \n", ft_strstr(str1, str2));
-	printf("%s \n", strstr(str1, str2));
-	return (0);
-}*/

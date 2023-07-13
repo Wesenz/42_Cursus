@@ -12,17 +12,18 @@
 
 #include "libft.h"
 
-static void	free_split(char **newstr)
+static char	**free_split(char **newstr, int j)
 {
 	int	i;
 
 	i = 0;
-	while (newstr[i])
+	while (i < j)
 	{
 		free(newstr[i]);
 		i++;
 	}
 	free(newstr);
+	return (NULL);
 }
 
 static int	words(const char *s, char c)
@@ -65,7 +66,7 @@ static char	*cpy_letters(const char *s, int start, int end)
 	return (letters);
 }
 
-static void	splitter(const char *s, char c, char **newstr)
+static char	**splitter(const char *s, char c, char **newstr)
 {
 	size_t	i;
 	int		j;
@@ -82,16 +83,14 @@ static void	splitter(const char *s, char c, char **newstr)
 		{
 			newstr[j] = cpy_letters(s, trigger, i);
 			if (!newstr[j])
-			{
-				free_split(newstr);
-				return ;
-			}
+				return (free_split(newstr, j));
 			trigger = -1;
 			j++;
 		}
 		i++;
 	}
 	newstr[j] = 0;
+	return (newstr);
 }
 
 char	**ft_split(char const *s, char c)
@@ -101,6 +100,5 @@ char	**ft_split(char const *s, char c)
 	newstr = malloc((words(s, c) + 1) * sizeof(char *));
 	if (!s || !newstr)
 		return (NULL);
-	splitter(s, c, newstr);
-	return (newstr);
+	return (splitter(s, c, newstr));
 }

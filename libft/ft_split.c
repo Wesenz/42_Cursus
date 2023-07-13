@@ -6,7 +6,7 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:23:24 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/06/22 20:04:47 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:12:41 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	free_split(char **newstr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (newstr[i])
@@ -65,15 +65,12 @@ static char	*cpy_letters(const char *s, int start, int end)
 	return (letters);
 }
 
-char	**ft_split(char const *s, char c)
+static void	splitter(const char *s, char c, char **newstr)
 {
 	size_t	i;
 	int		j;
 	int		trigger;
-	char	**newstr;
 
-	if (!s || !(newstr = malloc((words(s, c) + 1) * sizeof(char *))))
-		return (NULL);
 	i = 0;
 	j = 0;
 	trigger = -1;
@@ -82,12 +79,12 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != c && trigger < 0)
 			trigger = i;
 		else if ((s[i] == c || i == ft_strlen(s)) && trigger >= 0)
-		{	
+		{
 			newstr[j] = cpy_letters(s, trigger, i);
 			if (!newstr[j])
 			{
 				free_split(newstr);
-				return (NULL);
+				return ;
 			}
 			trigger = -1;
 			j++;
@@ -95,5 +92,15 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	newstr[j] = 0;
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**newstr;
+
+	newstr = malloc((words(s, c) + 1) * sizeof(char *));
+	if (!s || !newstr)
+		return (NULL);
+	splitter(s, c, newstr);
 	return (newstr);
 }

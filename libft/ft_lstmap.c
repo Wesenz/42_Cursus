@@ -6,7 +6,7 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:12:22 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/07/12 16:36:56 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:41:24 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,12 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		tmpnode = ft_lstnew(auxnode);
 		if (!tmpnode)
 		{
-			
 			ft_lstclear(&headnode, del);
 			free(auxnode);
 			return (NULL);
 		}
-			ft_lstadd_back(&headnode, tmpnode);
-			lst = lst->next;
+		ft_lstadd_back(&headnode, tmpnode);
+		lst = lst->next;
 	}
 	return (headnode);
 }

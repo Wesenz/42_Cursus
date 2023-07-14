@@ -16,6 +16,7 @@
 # include <stdlib.h> //STANDARD LIB SE PUEDE INCLUIR
 # include <unistd.h>
 # include <stddef.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
@@ -29,7 +30,7 @@ void	ft_lstadd_front(t_list **lst, t_list *newNode);
 void	ft_lstadd_back(t_list **lst, t_list *newNode);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
-//void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 int		ft_lstsize(t_list *lst);
 
 int		ft_isalnum(int c);

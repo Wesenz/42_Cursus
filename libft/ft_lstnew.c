@@ -6,7 +6,7 @@
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 16:37:04 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/07/12 16:43:13 by marcfer2         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:41:46 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ t_list	*ft_lstnew(void *content)
 
 	newnode = (t_list *)malloc(sizeof(t_list));
 	if (!newnode)
+	{
 		return (NULL);
+	}
 	newnode->content = (void *)content;
 	newnode->next = NULL;
 	return (newnode);

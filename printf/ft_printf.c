@@ -10,23 +10,46 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/printf.h"
 
-static int format_checker(const char *format, va_list args, int *len)
-{	
+static int	check_letter(const char *format, va_list args, int *len)
+{
 	int	checker;
-	int i;
 
 	checker = 0;
-	i = 0;
-	if (format[i] == '%')
-	{
-		len = len + ft_printc((char)va_arg(args, int));
+
+	if (*format == 'c')
+		checker = checker + ft_printc((char)va_args(args, int));
+	else if (*format == 's')
+		checker = checker + ft_prints(va_args(args, char *));
+	else if (*format == 'p')
+		checker = checker + ft_printp(va_arg(args, unsigned long));
+	else if (*format == 'd' || *format == 'i')
+		checker = checker + ft_printdi(va_arg(args, int));
+	else if (*format == 'u')
+		checker = checker + ft_printu(va_arg(args, unsigned int));
+	else if (*format == 'x' || *format == 'X')
 	
-	}
-	else if (format[i] != '%')
+}
+
+static int	percen_checker(const char *format, va_list args, int *len)
+{	
+	while (*format != '\0')
 	{
-		i++;
+	
+		if (*format == '%')
+		{	
+			format++;
+			if (ft_strchr("cspdiuxX", *format))
+			{
+
+			}
+		}
+		else if (*format != '%')
+		{
+
+		}
+		format++;
 	}
 }
 

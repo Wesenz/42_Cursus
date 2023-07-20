@@ -10,14 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-HEADER = libft.h
-
-NAME = libft.a
-
-LIB = ar rcs
-
+NAME = libftprintf.a
+INC = includes/
+LIB = includes/libft/
+LIBA = $(LIB)libft.a
+LIBF = ar rcs
 CC = cc
-
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_printc.c
@@ -28,8 +26,6 @@ BONUSSRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstmap.c ft_lstiter.c
 
 BONUSOBJ = $(BONUSSRC:.c=.o)
-
-PRINTFSRC = 
 
 %.o : %.c $(HEADER) Makefile
 	${CC} ${CFLAGS} -c $< -o $@

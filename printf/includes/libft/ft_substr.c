@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:26:16 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/07/17 20:26:35 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/05/17 18:00:50 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/07/12 16:50:55 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int format_checker(const char *format, va_list args, int *len)
-{	
-	int	checker;
-	int i;
+char	*ft_substr(const char *str, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	i;
+	size_t	srclen;
 
-	checker = 0;
 	i = 0;
-	if (format[i] == '%')
+	srclen = ft_strlen(str);
+	if (start >= srclen)
+		return (ft_strdup(""));
+	if (srclen < len + start)
+		len = srclen - start;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	while (i < len && str[i + start] != '\0')
 	{
-		len = len + ft_printc((char)va_arg(args, int));
-	
-	}
-	else if (format[i] != '%')
-	{
+		substr[i] = str[i + start];
 		i++;
 	}
-}
-
-int ft_printf(char const *format, ...)
-{
-	va_list args;
-	int	res;
-
-	res = 0;
-	va_start(args, format);
-	
-	va_end(args);
-	return (0);
+	substr[i] = '\0';
+	return (substr);
 }

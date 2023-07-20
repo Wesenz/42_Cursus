@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:26:16 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/07/17 20:26:35 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/05/12 17:48:40 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/05/22 18:38:31 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int format_checker(const char *format, va_list args, int *len)
-{	
-	int	checker;
-	int i;
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
 
-	checker = 0;
 	i = 0;
-	if (format[i] == '%')
+	if (!dstsize || dst == NULL || src == NULL)
 	{
-		len = len + ft_printc((char)va_arg(args, int));
-	
+		return (ft_strlen(src));
 	}
-	else if (format[i] != '%')
+	if (!dst || !src || !dstsize)
 	{
+		return (0);
+	}
+	while (i < dstsize - 1 && src[i] != '\0')
+	{
+		dst[i] = src[i];
 		i++;
 	}
-}
-
-int ft_printf(char const *format, ...)
-{
-	va_list args;
-	int	res;
-
-	res = 0;
-	va_start(args, format);
-	
-	va_end(args);
-	return (0);
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

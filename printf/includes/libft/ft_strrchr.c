@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:26:16 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/07/17 20:26:35 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/05/03 15:12:29 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/07/12 16:58:34 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int format_checker(const char *format, va_list args, int *len)
-{	
-	int	checker;
-	int i;
-
-	checker = 0;
-	i = 0;
-	if (format[i] == '%')
-	{
-		len = len + ft_printc((char)va_arg(args, int));
-	
-	}
-	else if (format[i] != '%')
-	{
-		i++;
-	}
-}
-
-int ft_printf(char const *format, ...)
+char	*ft_strrchr(const char *s, int c)
 {
-	va_list args;
-	int	res;
+	int	i;
 
-	res = 0;
-	va_start(args, format);
-	
-	va_end(args);
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i--;
+	}
 	return (0);
 }

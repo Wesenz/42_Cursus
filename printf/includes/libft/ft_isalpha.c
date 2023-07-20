@@ -1,43 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:26:16 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/07/17 20:26:35 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/05/03 12:38:52 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/05/10 13:14:39 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int format_checker(const char *format, va_list args, int *len)
-{	
-	int	checker;
-	int i;
-
-	checker = 0;
-	i = 0;
-	if (format[i] == '%')
-	{
-		len = len + ft_printc((char)va_arg(args, int));
-	
-	}
-	else if (format[i] != '%')
-	{
-		i++;
-	}
-}
-
-int ft_printf(char const *format, ...)
+int	ft_isalpha(int c)
 {
-	va_list args;
-	int	res;
-
-	res = 0;
-	va_start(args, format);
-	
-	va_end(args);
-	return (0);
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }

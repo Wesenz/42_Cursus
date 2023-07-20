@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:26:16 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/07/17 20:26:35 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/05/22 17:22:59 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/05/22 18:24:31 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int format_checker(const char *format, va_list args, int *len)
-{	
-	int	checker;
-	int i;
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t		i;
+	size_t		j;
+	size_t		newstrlen;
+	char		*newstr;
 
-	checker = 0;
 	i = 0;
-	if (format[i] == '%')
+	j = 0;
+	newstrlen = ft_strlen(s1) + ft_strlen(s2);
+	newstr = (char *)malloc(newstrlen + 1);
+	if (!newstr)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		len = len + ft_printc((char)va_arg(args, int));
-	
-	}
-	else if (format[i] != '%')
-	{
+		newstr[i] = s1[i];
 		i++;
 	}
-}
-
-int ft_printf(char const *format, ...)
-{
-	va_list args;
-	int	res;
-
-	res = 0;
-	va_start(args, format);
-	
-	va_end(args);
-	return (0);
+	while (s2[j] != '\0' && i >= ft_strlen(s1))
+	{
+		newstr[i + j] = s2[j];
+		j++;
+	}
+	newstr[newstrlen] = '\0';
+	return (newstr);
 }

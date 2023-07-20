@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:26:16 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/07/17 20:26:35 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/05/09 15:02:47 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/05/09 15:53:55 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int format_checker(const char *format, va_list args, int *len)
-{	
-	int	checker;
-	int i;
-
-	checker = 0;
-	i = 0;
-	if (format[i] == '%')
-	{
-		len = len + ft_printc((char)va_arg(args, int));
-	
-	}
-	else if (format[i] != '%')
-	{
-		i++;
-	}
-}
-
-int ft_printf(char const *format, ...)
+void	*ft_calloc(size_t count, size_t size)
 {
-	va_list args;
-	int	res;
+	size_t	size_arr;
+	void	*arrpt;
 
-	res = 0;
-	va_start(args, format);
-	
-	va_end(args);
-	return (0);
+	size_arr = count * size;
+	arrpt = malloc(size_arr);
+	if (arrpt == NULL)
+	{
+		return (0);
+	}
+	else
+	{
+		ft_memset(arrpt, 0, size_arr);
+	}
+	return (arrpt);
 }

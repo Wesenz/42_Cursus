@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcfer2 <marcfer2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:26:16 by marcfer2          #+#    #+#             */
-/*   Updated: 2023/07/17 20:26:35 by marcfer2         ###   ########.fr       */
+/*   Created: 2023/07/20 16:55:01 by marcfer2          #+#    #+#             */
+/*   Updated: 2023/07/20 16:55:04 by marcfer2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include "libft/libft.h"
+# include <stdarg.h>
 
-static int format_checker(const char *format, va_list args, int *len)
-{	
-	int	checker;
-	int i;
+int	ft_printc(char c);
+// int	ft_prints(char *s);
+// int	ft_printp(unsigned long ptr);
+// int	ft_printid(int nb);
+// int	ft_printu(unsigned int nb);
+// int	ft_printhex(unsigned int n, char *base);
+// int	ft_printf(char const *s, ...);
 
-	checker = 0;
-	i = 0;
-	if (format[i] == '%')
-	{
-		len = len + ft_printc((char)va_arg(args, int));
-	
-	}
-	else if (format[i] != '%')
-	{
-		i++;
-	}
-}
-
-int ft_printf(char const *format, ...)
-{
-	va_list args;
-	int	res;
-
-	res = 0;
-	va_start(args, format);
-	
-	va_end(args);
-	return (0);
-}
+#endif

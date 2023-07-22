@@ -18,14 +18,15 @@ LIBF = ar rcs
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printc.c
+SRC = ft_printf.c ft_printc.c
 
 OBJS = $(SRC:.c=.o)
 
-BONUSSRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstmap.c ft_lstiter.c
+BONUSSRC = 
 
 BONUSOBJ = $(BONUSSRC:.c=.o)
+
+HEADER = $(INC)ft_printf.h $(LIB)libft.h
 
 %.o : %.c $(HEADER) Makefile
 	${CC} ${CFLAGS} -c $< -o $@
@@ -33,12 +34,12 @@ BONUSOBJ = $(BONUSSRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(LIB) $(NAME) $(OBJS) 
+	$(LIBF) $(NAME) $(OBJS) $(LIBA)
 
 bonus: .bonus
 
 .bonus: $(BONUSOBJ) $(OBJS)
-	$(LIB) $(NAME) $(BONUSOBJ) $(OBJS)
+	$(LIB) $(NAME) $(BONUSOBJ) $(OBJS) $(LIBA)
 	touch .bonus
 
 clean:

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
 int main(void)
 {   
@@ -12,9 +12,11 @@ int main(void)
 	x = 243242312;
     */
 	a = 'a';
+    ft_putchar(a);
+    ft_putchar('\n');
+    /*
 	ft_printf("%c\n", a);
     printf("%c\n", a);
-    /*
 	ft_printf("flag ftsc %s %c \n", s, a);
 	printf("flag pP %p \n", &x);
 	ft_printf("flag ftD %d \n", -10);

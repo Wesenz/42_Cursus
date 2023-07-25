@@ -11,14 +11,11 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-INC = includes/
-LIB = includes/libft/
-LIBA = $(LIB)libft.a
 LIBF = ar rcs
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_printc.c
+SRC = ft_printf.c ft_printf_putchar.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -26,28 +23,25 @@ BONUSSRC =
 
 BONUSOBJ = $(BONUSSRC:.c=.o)
 
-HEADER = $(INC)ft_printf.h $(LIB)libft.h
+HEADER = ft_printf.h
 
 %.o : %.c $(HEADER) Makefile
 	${CC} ${CFLAGS} -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(LIBF) $(NAME) $(OBJS) $(LIBA)
-
-bonus: .bonus
-
-.bonus: $(BONUSOBJ) $(OBJS)
-	$(LIB) $(NAME) $(BONUSOBJ) $(OBJS) $(LIBA)
-	touch .bonus
+$(NAME): 	$(OBJS)
+	 		$(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS) $(BONUSOBJ)
 
-fclean: clean
+clean-libft:
+	rm -f $(LIBA)
+
+fclean: clean clean-libft
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re main $(LIBA) clean-libft

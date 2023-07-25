@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "includes/libft/libft.h"
+#include "ft_printf.h"
 
 static int	check_letter(const char *format, va_list args, int *len)
 {
@@ -20,7 +19,7 @@ static int	check_letter(const char *format, va_list args, int *len)
 	checker = 0;
 
 	if (*format == 'c')
-		checker = checker + ft_printc((char)va_arg(args, int));
+		ft_putchar(va_arg(args, int));
 	/*
 	else if (*format == 's')
 		checker = checker + ft_prints(va_arg(args, char *));
@@ -39,27 +38,23 @@ static int	check_letter(const char *format, va_list args, int *len)
 
 static int	percen_checker(const char *format, va_list args, int *len)
 {	
-	int i;
+	int counter;
 
-	i = 0;
+	counter = 0;
 	while (*format != '\0')
 	{
 		if (*format == '%')
 		{	
 			format++;
-			if (ft_strchr("cspdiuxX", *format) && check_letter(format, args, len) != -1)
-				i = i + *len;
-			else if(*format == '%' && ft_printc('%') != -1)
-				i++;
+			if (check_letter(format, args, len) != -1)
+				counter = counter + *len;
 		}
-		else if (ft_printc(*format) != -1)
-			i++;
 		else
 			return (-1);
-		format++;
+	format++;
 	}
-	*len = i;
-	return (i);
+	*len = counter;
+	return (counter);
 }
 
 int ft_printf(char const *format, ...)

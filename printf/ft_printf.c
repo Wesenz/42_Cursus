@@ -18,16 +18,14 @@ int	ft_check_letter(const char str, va_list args, int *wrd_len)
 		ft_printf_putchar(va_arg(args, int), wrd_len);
 	else if (str == 's')
 		ft_printf_putstr(va_arg(args, char *), wrd_len);
-	/*
-	else if (*format == 'p')
-		checker = checker + ft_printp(va_arg(args, unsigned long));
-	else if (*format == 'd' || *format == 'i')
-		checker = checker + ft_printdi(va_arg(args, int));
-	else if (*format == 'u')
-		checker = checker + ft_printu(va_arg(args, unsigned int));
-	else if (*format == 'x' || *format == 'X')
-	{}
-	*/
+
+	//else if (*format == 'p')
+		//checker = checker + ft_printp(va_arg(args, unsigned long));
+	else if (/* *format == 'd' ||*/ str == 'i')
+		ft_printf_putnbr(va_arg(args, int), wrd_len);
+	//else if (*format == 'u')
+		//checker = checker + ft_printu(va_arg(args, unsigned int));
+	//else if (*format == 'x' || *format == 'X')
 	return (-1);
 }
 

@@ -15,10 +15,11 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-int ft_printf(char const *format, ...);
+int 	ft_printf(char const *format, ...);
 void	ft_printf_putchar(int c, int *wrd_len);
 void	ft_printf_putstr(char *str, int	*wrd_len);
-// int	ft_prints(char *s);
+void	ft_printf_putnbr(int nbr, int *wrd_len);
+
 // int	ft_printp(unsigned long ptr);
 // int	ft_printid(int nb);
 // int	ft_printu(unsigned int nb);

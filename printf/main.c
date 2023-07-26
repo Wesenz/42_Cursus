@@ -4,16 +4,15 @@
 int main(void)
 {   
     char a;
-    /*
-	char s[] = "Hola mundo";
+	//char s[] = "Hola mundo";
 	int x;
-	unsigned long h;
+	//unsigned long h;
 
 	x = 243242312;
-    */
 	a = 'a';
     ft_printf_putchar("%c", a);
-    ft_printf_putchar("%c",'\n');
+    printf("%c",'\n');
+	ft_printf_putnbr("%i", x);
     /*
 	ft_printf("%c\n", a);
     printf("%c\n", a);

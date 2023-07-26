@@ -12,8 +12,8 @@ int main(void)
 	x = 243242312;
     */
 	a = 'a';
-    ft_putchar(a);
-    ft_putchar('\n');
+    ft_printf_putchar("%c", a);
+    ft_printf_putchar("%c",'\n');
     /*
 	ft_printf("%c\n", a);
     printf("%c\n", a);

@@ -16,8 +16,8 @@
 #include <unistd.h>
 
 int ft_printf(char const *format, ...);
-int	ft_putchar(int c);
-
+void	ft_printf_putchar(int c, int *wrd_len);
+void	ft_printf_putstr(char *str, int	*wrd_len);
 // int	ft_prints(char *s);
 // int	ft_printp(unsigned long ptr);
 // int	ft_printid(int nb);

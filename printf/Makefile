@@ -11,11 +11,11 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-LIBF = ar rcs
+AR = ar rcs
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_printf_putchar.c
+SRC = ft_printf.c ft_printf_putchar.c ft_printf_putstr.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -31,7 +31,7 @@ HEADER = ft_printf.h
 all: $(NAME)
 
 $(NAME): 	$(OBJS)
-	 		$(NAME) $(OBJS)
+	 		$(AR) $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS) $(BONUSOBJ)

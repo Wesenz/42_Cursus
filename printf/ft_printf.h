@@ -14,11 +14,14 @@
 # define FT_PRINTF_H
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int 	ft_printf(char const *format, ...);
-void	ft_printf_putchar(int c, int *wrd_len);
-void	ft_printf_putstr(char *str, int	*wrd_len);
-void	ft_printf_putnbr(int nbr, int *wrd_len);
+char	*ft_itoa(unsigned int n);
+void	ft_printf_putchar(int c, int *input_len);
+void	ft_printf_putstr(char *str, int	*input_len);
+void	ft_printf_putnbr(int nbr, int *input_len);
+void    ft_printf_putunbr(unsigned int nbr, int *input_len);
 
 // int	ft_printp(unsigned long ptr);
 // int	ft_printid(int nb);

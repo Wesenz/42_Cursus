@@ -12,19 +12,18 @@
 
 #include "ft_printf.h"
 
-int	ft_check_letter(const char str, va_list args, int *wrd_len)
+int	ft_check_letter(const char str, va_list args, int *input_len)
 {
 	if (str == 'c')
-		ft_printf_putchar(va_arg(args, int), wrd_len);
+		ft_printf_putchar(va_arg(args, int), input_len);
 	else if (str == 's')
-		ft_printf_putstr(va_arg(args, char *), wrd_len);
-
+		ft_printf_putstr(va_arg(args, char *), input_len);
+	else if (str == 'd' || str == 'i')
+		ft_printf_putnbr(va_arg(args, int), input_len);
+	else if (str == 'u')
+		ft_printf_putunbr(va_arg(args, unsigned int), input_len);
 	//else if (*format == 'p')
 		//checker = checker + ft_printp(va_arg(args, unsigned long));
-	else if (/* *format == 'd' ||*/ str == 'i')
-		ft_printf_putnbr(va_arg(args, int), wrd_len);
-	//else if (*format == 'u')
-		//checker = checker + ft_printu(va_arg(args, unsigned int));
 	//else if (*format == 'x' || *format == 'X')
 	return (-1);
 }
@@ -33,24 +32,24 @@ int ft_printf(char const *str, ...)
 {
 	va_list args;
 	int	i;
-	int	wrd_len;
+	int	input_len;
 
 	i = 0;
-	wrd_len = 0;
+	input_len = 0;
 	va_start(args, str);
 	while (str[i] != '\0')
 	{
 		if (str[i] != '%')
-			ft_printf_putchar(str[i], &wrd_len);
+			ft_printf_putchar(str[i], &input_len);
 		else if (str[i] == '%' && str[i + 1] != '\0')
 		{
-			ft_check_letter(str[i + 1], args, &wrd_len);
+			ft_check_letter(str[i + 1], args, &input_len);
 			i++;
 		}
 		i++;
-		if (wrd_len == -1)
+		if (input_len == -1)
 			return (-1);
 	}
 	va_end(args);
-	return (wrd_len);
+	return (input_len);
 }

@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-void	ft_printf_putchar(int c, int *wrd_len)
+void	ft_printf_putchar(int c, int *input_len)
 {
 	if (write(1, &c, 1) == -1)
-		*wrd_len = -1;
+		*input_len = -1;
 	else
-		*wrd_len += 1;
+		*input_len += 1;
 }
 
 

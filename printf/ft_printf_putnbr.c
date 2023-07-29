@@ -23,7 +23,7 @@ void	ft_printf_putnbr(int nbr, int *input_len)
 		if (*input_len == -1)
 			return ;
 	}
-	if (nbr >= 10) 
+	if (nbr >= 10)
 	{
 		ft_printf_putnbr(nbr / 10, input_len);
 		if (*input_len == -1)

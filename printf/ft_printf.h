@@ -12,17 +12,18 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
 
-int 	ft_printf(char const *format, ...);
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+int		ft_printf(char const *format, ...);
 void	ft_printf_putchar(int c, int *input_len);
 void	ft_printf_putstr(char *str, int	*input_len);
 void	ft_printf_putnbr(int nbr, int *input_len);
-void    ft_printf_putunbr(unsigned int nbr, int *input_len);
-void    ft_printf_puthex(unsigned long nbr, char c, int *input_len);
-void    ft_printf_pointer(unsigned long str, int *input_len);
+void	ft_printf_putunbr(unsigned int nbr, int *input_len);
+void	ft_printf_puthex(unsigned long nbr, char c, int *input_len);
+void	ft_printf_pointer(unsigned long str, int *input_len);
 char	*ft_itoa(unsigned int n);
 
 #endif

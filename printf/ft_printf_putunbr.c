@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void    ft_printf_putunbr(unsigned int nbr, int *input_len)
+void	ft_printf_putunbr(unsigned int nbr, int *input_len)
 {
 	if (nbr > 9)
 	{

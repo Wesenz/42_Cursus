@@ -12,18 +12,18 @@
 
 #include "ft_printf.h"
 
-void    ft_printf_putstr(char *str, int *input_len)
+void	ft_printf_putstr(char *str, int *input_len)
 {
-    if (!str)
-    {
-        ft_printf_putstr("(null)", input_len);
-        return ;
-    }
-    while (*str != '\0')
-    {
-        ft_printf_putchar(*str, input_len);
-        if (*input_len == -1)
-            return ;
-        str++;   
-    }
+	if (!str)
+	{
+		ft_printf_putstr("(null)", input_len);
+		return ;
+	}
+	while (*str != '\0')
+	{
+		ft_printf_putchar(*str, input_len);
+		if (*input_len == -1)
+			return ;
+		str++;
+	}
 }

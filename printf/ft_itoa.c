@@ -38,7 +38,7 @@ char	*ft_itoa(unsigned int n)
 		return (NULL);
 	newstr[len] = '\0';
 	if (n == 0)
-		newstr[0] = 0 + 48;
+		newstr[0] = '0';
 	while (n > 0)
 	{
 		newstr[--len] = '0' + (n % 10);

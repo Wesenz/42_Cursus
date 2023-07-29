@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 
 int	ft_check_letter(char str, va_list args, int *input_len)
-{
+{	
 	if (str == 'c')
 		ft_printf_putchar(va_arg(args, int), input_len);
 	else if (str == 's')
@@ -26,6 +26,8 @@ int	ft_check_letter(char str, va_list args, int *input_len)
 		ft_printf_puthex(va_arg(args, unsigned int), str, input_len);
 	else if (str == 'p')
 		ft_printf_pointer(va_arg(args, unsigned long), input_len);
+	else if (str == '%')
+		ft_printf_putchar('%', input_len);
 	return (-1);
 }
 

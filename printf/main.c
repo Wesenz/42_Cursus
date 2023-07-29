@@ -11,6 +11,7 @@ int main(void)
 	int	dec_int;
 	unsigned int u_int;
 	unsigned int u_int_0;
+	unsigned int hex;
 
 	max_int = 2147483647;
 	min_int = -2147483648;
@@ -20,6 +21,7 @@ int main(void)
 	u_int_0 = 0;
 	a = 'a';
 	str = "ola q ase";
+	hex = -1;
 
     ft_printf("Char test: %c", a);
     printf("\n");
@@ -36,6 +38,14 @@ int main(void)
 	ft_printf("Unsigned int 0 test: %u", u_int_0);
 	printf("\n");
 	ft_printf("Unsigned int test: %u", u_int);
+	printf("\n");
+	ft_printf("Hexadecimal x test: %x", hex);
+	printf("\n");
+	printf("Printf Hexadecimal x test: %x", hex);
+	printf("\n");
+	ft_printf("Hexadecimal X test: %X", hex);
+	printf("\n");
+	printf("Printf Hexadecimal X test: %X", hex);
 	printf("\n");
     /*
 	ft_printf("%c\n", a);

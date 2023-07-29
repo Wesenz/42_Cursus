@@ -17,7 +17,7 @@ void	ft_printf_putchar(int c, int *input_len)
 	if (write(1, &c, 1) == -1)
 		*input_len = -1;
 	else
-		*input_len += 1;
+		*input_len +=1;
 }
 
 

@@ -22,11 +22,7 @@ void	ft_printf_putchar(int c, int *input_len);
 void	ft_printf_putstr(char *str, int	*input_len);
 void	ft_printf_putnbr(int nbr, int *input_len);
 void    ft_printf_putunbr(unsigned int nbr, int *input_len);
-
-// int	ft_printp(unsigned long ptr);
-// int	ft_printid(int nb);
-// int	ft_printu(unsigned int nb);
-// int	ft_printhex(unsigned int n, char *base);
-// int	ft_printf(char const *s, ...);
+void    ft_printf_puthex(unsigned long nbr, char c, int *input_len);
+void    ft_printf_pointer(unsigned long str, int *input_len);
 
 #endif

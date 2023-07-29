@@ -15,13 +15,14 @@ AR = ar rcs
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_printf_putchar.c ft_printf_putstr.c ft_printf_putnbr.c ft_printf_putunbr.c ft_itoa.c
+SRC = 	ft_printf.c ft_printf_putchar.c ft_printf_putstr.c ft_printf_putnbr.c \
+		ft_printf_putunbr.c ft_printf_puthex.c ft_printf_pointer.c ft_itoa.c
 
 OBJS = $(SRC:.c=.o)
 
-BONUSSRC = 
+##BONUSSRC = 
 
-BONUSOBJ = $(BONUSSRC:.c=.o)
+##BONUSOBJ = $(BONUSSRC:.c=.o)
 
 HEADER = ft_printf.h
 

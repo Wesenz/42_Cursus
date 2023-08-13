@@ -8,13 +8,13 @@
 # include <unistd.h>
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 30
+# define BUFFER_SIZE 1024
 #endif
 
 size_t  ft_strlen(char *str);
 void	*ft_memchr(const void *s, int c, size_t n);
-void	*ft_memchr(const void *s, int c, size_t n);
-char	*ft_strjoin(char const *str1, char const *str2);
+char	*ft_strchr(char *s, int c);
+char	*ft_strjoin(char *str1, char *str2);
 char    *free_buffer(char *read);
 char    *get_next_line(int fd);
 

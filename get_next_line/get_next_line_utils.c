@@ -10,7 +10,7 @@ size_t  ft_strlen(char *str)
     return (i);
 }
 
-char	*ft_strjoin(char const *str1, char const *str2)
+char	*ft_strjoin(char *str1, char *str2)
 {
 	size_t		i;
 	size_t		j;
@@ -28,12 +28,12 @@ char	*ft_strjoin(char const *str1, char const *str2)
 		newstr[i] = str1[i];
 		i++;
 	}
-	while (str2[j] != '\0' && i >= ft_strlen(str1))
+	while (str2[j] != '\0')
 	{
 		newstr[i + j] = str2[j];
 		j++;
 	}
-	newstr[newstrlen] = '\0';
+	newstr[i + j] = '\0';
 	return (newstr);
 }
 
@@ -47,15 +47,13 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (sptr[i] == (unsigned char)c)
-		{
 			return ((void *)&sptr[i]);
-		}
 		i++;
 	}
 	return (NULL);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	return (ft_memchr(s, c, ft_strlen(s) + 1));
 }

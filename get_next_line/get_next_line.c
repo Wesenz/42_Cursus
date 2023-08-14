@@ -28,22 +28,54 @@ static char	*extract_line(char *storage)
 	return (line);
 }
 
+static void	*clean_storage(char *storage)
+{
+	int		i;
+	int		j;
+	char	*new_storage;
+
+	i = 0;
+	while (storage[i] && storage[i] != '\n')
+		i++;
+	if (!storage[i])
+	{
+		free(storage);
+		return (NULL);
+	}
+	new_storage = malloc(sizeof(char) * (ft_strlen(storage) - i + 1));
+	if (!new_storage)
+	{
+		free(storage);
+		return (NULL);
+	}
+	i++;
+	j = 0;
+	while (storage[i])
+		new_storage[j++] = storage[i++];
+	new_storage[j] = '\0';
+	free(storage);
+	return (new_storage);
+}
+
 static char *read_buffer(int fd, char *storage)
 {   
-    printf("TMP Malloc FLAG \n");
     int i;
     char *tmp;
 
-    i = 0;
     tmp = malloc(sizeof(char) * (BUFFER_SIZE + 1));
     if (!tmp)
         return (free_buffer(storage));
-    while (storage && !ft_strchr(storage, '\n'))
+    i = 42;
+    printf("TMP Malloc FLAG \n");
+    while (!ft_strchr(storage, '\n'))
     {   
         i = read(fd, tmp, BUFFER_SIZE);
+        printf("Bytes read: %i \n", i);
         if (i < 0)
         {   
             free(tmp);
+            if (storage)
+                free(storage);
             return(NULL);
         }
         printf("TMP Print: %s \n", tmp);
@@ -63,10 +95,10 @@ char    *get_next_line(int fd)
     if (BUFFER_SIZE < 0 || fd < 0)
         return (NULL);
     printf("GNL ENGAGED \n");
-    if (!storage || !ft_strchr(storage, '\n'))
+    if (!storage || (!ft_strchr(storage, '\n') && storage))
     {
 		storage = read_buffer(fd, storage);
-        printf("%s \n", storage);
+        //printf("%s \n", storage);
     }
 	if (!storage)
 		return (NULL);
@@ -77,5 +109,6 @@ char    *get_next_line(int fd)
 		storage = NULL;
 		return (NULL);
 	}
+    storage = clean_storage(storage);
     return (line);
 }

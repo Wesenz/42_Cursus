@@ -37,25 +37,24 @@ char	*ft_strjoin(char *str1, char *str2)
 	return (newstr);
 }
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strchr(char *str, int c)
 {
-	unsigned char	*sptr;
-	size_t			i;
+	char	*s;
+	int		i;
 
-	sptr = (unsigned char *)s;
 	i = 0;
-	while (i < n)
+	s = (char *)str;
+	if (!s)
+		return (NULL);
+	while (s[i])
 	{
-		if (sptr[i] == (unsigned char)c)
-			return ((void *)&sptr[i]);
+		if (s[i] == (char)c)
+			return (&s[i]);
 		i++;
 	}
+	if (c == '\0')
+		return (&s[i]);
 	return (NULL);
-}
-
-char	*ft_strchr(char *s, int c)
-{
-	return (ft_memchr(s, c, ft_strlen(s) + 1));
 }
 
 char    *free_buffer(char *read)

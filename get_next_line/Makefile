@@ -1,6 +1,6 @@
 NAME = GNL
 CFLAGS = -Wall -Werror -Wextra -D BUFFER_SIZE=1 -g -fsanitize=address
-OBJECTS = get_next_line_bonus.c get_next_line_utils_bonus.c
+OBJECTS = get_next_line.c get_next_line_utils.c main.c
 
 ${NAME}: ${OBJECTS}
 	cc ${CFLAGS} ${OBJECTS} -o ${NAME}
@@ -8,7 +8,6 @@ all: ${NAME}
 
 fclean: clean
 	rm -rf ${NAME}
-	rm -R *.dSYM
 
 clean:
 	rm -f ${NAME}

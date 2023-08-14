@@ -13,7 +13,7 @@
 
 size_t  ft_strlen(char *str);
 void	*ft_memchr(const void *s, int c, size_t n);
-char	*ft_strchr(char *s, int c);
+char	*ft_strchr(char *str, int c);
 char	*ft_strjoin(char *str1, char *str2);
 char    *free_buffer(char *read);
 char    *get_next_line(int fd);

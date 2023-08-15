@@ -10,31 +10,32 @@ size_t  ft_strlen(char *str)
     return (i);
 }
 
-char	*ft_strjoin(char *str1, char *str2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t		i;
-	size_t		j;
-	size_t		newstrlen;
-	char		*newstr;
+	size_t	i;
+	size_t	c;
+	char	*str;
 
-	i = 0;
-	j = 0;
-	newstrlen = ft_strlen(str1) + ft_strlen(str2);
-	newstr = (char *)malloc(newstrlen + 1);
-	if (!newstr)
-		return (NULL);
-	while (str1[i] != '\0')
+	if (!s1)
 	{
-		newstr[i] = str1[i];
-		i++;
+		s1 = malloc(1 * sizeof(char));
+		if (!s1)
+			return (NULL);
+		s1[0] = '\0';
 	}
-	while (str2[j] != '\0')
-	{
-		newstr[i + j] = str2[j];
-		j++;
-	}
-	newstr[i + j] = '\0';
-	return (newstr);
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (str == NULL)
+		return (free_buffer(s1));
+	i = -1;
+	c = 0;
+	if (s1)
+		while (s1[++i] != '\0')
+			str[i] = s1[i];
+	while (s2[c] != '\0')
+		str[i++] = s2[c++];
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
+	return (str);
 }
 
 char	*ft_strchr(char *str, int c)

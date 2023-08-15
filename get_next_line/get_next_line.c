@@ -67,7 +67,7 @@ static char *read_buffer(int fd, char *storage)
         return (free_buffer(storage));
     i = 42;
     printf("TMP Malloc FLAG \n");
-    while (!ft_strchr(storage, '\n'))
+    while (!ft_strchr(storage, '\n') && i > 0)
     {   
         i = read(fd, tmp, BUFFER_SIZE);
         printf("Bytes read: %i \n", i);

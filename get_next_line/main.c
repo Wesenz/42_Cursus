@@ -8,7 +8,6 @@ int main()
 
 	i = 0;
 	fd = open("pantoja.txt", O_RDONLY);
-	printf("FD Flag \n");
 	while (i < 10)
 	{
 		line = get_next_line(fd);
@@ -17,6 +16,5 @@ int main()
 		i++;
 	}
 	close(fd);
-	printf("Closed FD \n");
 	return (0);
 }

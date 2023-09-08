@@ -66,11 +66,9 @@ static char *read_buffer(int fd, char *storage)
     if (!tmp)
         return (free_buffer(storage));
     i = 42;
-    printf("TMP Malloc FLAG \n");
     while (!ft_strchr(storage, '\n') && i > 0)
     {   
         i = read(fd, tmp, BUFFER_SIZE);
-        printf("Bytes read: %i \n", i);
         if (i < 0)
         {   
             free(tmp);
@@ -78,13 +76,11 @@ static char *read_buffer(int fd, char *storage)
                 free(storage);
             return(NULL);
         }
-        printf("TMP Print: %s \n", tmp);
         tmp[i] = '\0';
         storage = ft_strjoin(storage, tmp);
     }
     free(tmp);
     tmp = NULL;
-    printf("Storage Print: %s \n", storage);
     return (storage);
 }
 
@@ -94,11 +90,9 @@ char    *get_next_line(int fd)
     static char *storage;
     if (BUFFER_SIZE < 0 || fd < 0)
         return (NULL);
-    printf("GNL ENGAGED \n");
     if (!storage || (!ft_strchr(storage, '\n') && storage))
     {
 		storage = read_buffer(fd, storage);
-        //printf("%s \n", storage);
     }
 	if (!storage)
 		return (NULL);
